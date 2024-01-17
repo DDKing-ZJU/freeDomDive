@@ -1,17 +1,38 @@
-# Welcome to MkDocs
+# freeDomD↓ve
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<br>
 
-## Commands
+!!! note ""
+    <br><br>
+    <div align = "center" style = "font-size:27px">
+    一馬當先，萬馬無光。
+    </div>
+    <div align = "center">
+    Eclipse the first, the rest nowhere.
+    </div>
+    <br><br>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+<br>
 
-## Project layout
+简单的网站，放一点学习笔记，放一点生活心得。
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+A website recording study and life.
+
+## About me
+**ID:** DDKing <br>
+**Major:** Computer Science <br>
+
++ Sophomore in ZJU
+
+
+## Lastest Update
+
+<center>
+
+<div style = "font-size:24px">
+Let's D↓ve into the ocean of knowledge!
+</div>
+
+![](assets/pic/FreedomDive_Circ.png)
+
+</center>

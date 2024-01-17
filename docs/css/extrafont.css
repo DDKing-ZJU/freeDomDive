@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Custom Font";
+    src:
+        url("../fonts/PlayfairDisplay-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Custom Font Chinese";
+    src: url("../fonts/DreamHanSerifCN-W14.ttf");
+}
+
+:root {
+    --md-text-font: "Custom Font", "Custom Font Chinese";
+}

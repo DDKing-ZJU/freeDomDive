@@ -1,9 +1,17 @@
-site_name: M Tutorial
+site_name: freeDomD↓ve
+site_author: DDKing
+site_url: 'https://ddking-zju.github.io/freeDomDive/'
+
+repo_name: 'DDKing/freeDomD↓ve'
+repo_url: 'https://github.com/DDKing-ZJU/freeDomDive/'
+
 theme:
   name: material
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github-alt 
+  font:
+    code: Play
   features:
     - navigation.tabs
     - navigation.sections
@@ -20,7 +28,7 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-      primary: blue
+      primary: white
       accent: orange
     - scheme: slate
       toggle:
@@ -41,10 +49,8 @@ extra_javascript:
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
-
-repo_url: https://github.com/DDKing_ZJU/Material-Mkdocs-Tutorial/
-repo_name: DDKing/Material-Mkdocs-Tutorial
-
+  - css/extrafont.css
+  - css/admonitions.css
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -64,4 +70,9 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 copyright:
-  copyright 2024 <a href = "https://github.com/DDKing-ZJU" target="_blank" rel="noopener">DDKing</a>
+  Copyright &copy; 2024 <a href = "https://github.com/DDKing-ZJU" target="_blank" rel="noopener">DDKing</a>
+
+nav:
+  - Home:
+    - index.md
+    - Discussion: discussions.md
