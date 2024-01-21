@@ -26,6 +26,7 @@ A website recording study and life.
 
 
 ## Lastest Update
++ Jan. 21st &emsp; [CS231N - Image Classifier](ScientificResearch/CS231N/L2.md)
 
 <center>
 

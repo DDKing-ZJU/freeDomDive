@@ -65,6 +65,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.mark
   - attr_list
+  - pymdownx.tabbed:
+      alternate_style: true 
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -76,3 +78,11 @@ nav:
   - Home:
     - index.md
     - Discussion: discussions.md
+  - 课程笔记:
+    - x
+  - 科研学习:
+    - 基础课程:
+      - CS231N:
+        - Lecture2 - Image Classifier: ScientificResearch\CS231N\L2.md
+  - 读书心得:
+    - x
