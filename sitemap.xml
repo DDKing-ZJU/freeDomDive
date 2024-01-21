@@ -2,12 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ddking-zju.github.io/freeDomDive/</loc>
-         <lastmod>2024-01-17</lastmod>
+         <lastmod>2024-01-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ddking-zju.github.io/freeDomDive/discussions/</loc>
-         <lastmod>2024-01-17</lastmod>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/ScientificResearch/CS231N/L2/</loc>
+         <lastmod>2024-01-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
