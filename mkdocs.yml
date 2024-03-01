@@ -80,9 +80,11 @@ nav:
     - Discussion: discussions.md
   - 课程笔记:
     - x
-  - 科研学习:
-    - 基础课程:
+  - 科研学习: 
+    - ScientificResearch\index.md
+    - 基础课程: 
       - CS231N:
         - Lecture2 - Image Classifier: ScientificResearch\CS231N\L2.md
+        - Assignment1 - K nearest Neighbour: ScientificResearch\CS231N\A1L1.md
   - 读书心得:
     - x

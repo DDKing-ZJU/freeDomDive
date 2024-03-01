@@ -14,4 +14,6 @@ Update 1:
 
 **1.21**
 + Lecture 2 notes
+
+**1.22**
 + K-Nearest-Neighbour lab report
