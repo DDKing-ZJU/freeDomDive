@@ -78,8 +78,14 @@ nav:
   - Home:
     - index.md
     - Discussion: discussions.md
-  - 课程笔记:
-    - x
+  - 课程笔记: 
+    - Classnote\index.md
+    - 离散数学及其应用: 
+      - Classnote\Discrete-Mathematics\index.md
+      - 琐记: Classnote\Discrete-Mathematics\Casual.md
+      - 命题的应用 - 数独游戏: Classnote\Discrete-Mathematics\Sudoku.md
+    - 数据库系统:
+      - Classnote\Database-System\index.md
   - 科研学习: 
     - ScientificResearch\index.md
     - 基础课程: 
