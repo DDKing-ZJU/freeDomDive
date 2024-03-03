@@ -2,17 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ddking-zju.github.io/freeDomDive/</loc>
-         <lastmod>2024-01-21</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ddking-zju.github.io/freeDomDive/discussions/</loc>
-         <lastmod>2024-01-21</lastmod>
+         <lastmod>2024-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/Classnote/</loc>
+         <lastmod>2024-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/Classnote/Database-System/</loc>
+         <lastmod>2024-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/Classnote/Discrete-Mathematics/</loc>
+         <lastmod>2024-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/Classnote/Discrete-Mathematics/Casual/</loc>
+         <lastmod>2024-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/Classnote/Discrete-Mathematics/Sudoku/</loc>
+         <lastmod>2024-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/ScientificResearch/</loc>
+         <lastmod>2024-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ddking-zju.github.io/freeDomDive/ScientificResearch/CS231N/A1L1/</loc>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ddking-zju.github.io/freeDomDive/ScientificResearch/CS231N/L2/</loc>
-         <lastmod>2024-01-21</lastmod>
+         <lastmod>2024-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

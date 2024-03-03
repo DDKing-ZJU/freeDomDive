@@ -10,13 +10,11 @@
         <meta name="author" content="DDKing">
       
       
-        <link rel="canonical" href="https://ddking-zju.github.io/freeDomDive/ScientificResearch/CS231N/L2/">
+        <link rel="canonical" href="https://ddking-zju.github.io/freeDomDive/ScientificResearch/CS231N/A1L1/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../L2/">
       
-      
-        <link rel="next" href="../A1L1/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>第二讲 —— 图像分类器 - freeDomD↓ve</title>
+        <title>实验一 —— 实现前K最近邻居算法 - freeDomD↓ve</title>
       
     
     
@@ -82,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#k" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第二讲 —— 图像分类器
+              实验一 —— 实现前K最近邻居算法
             
           </span>
         </div>
@@ -824,6 +822,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../L2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2 - Image Classifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -840,7 +859,7 @@
           
   
   <span class="md-ellipsis">
-    Lecture2 - Image Classifier
+    Assignment1 - K nearest Neighbour
   </span>
   
 
@@ -851,7 +870,7 @@
         
   
   <span class="md-ellipsis">
-    Lecture2 - Image Classifier
+    Assignment1 - K nearest Neighbour
   </span>
   
 
@@ -873,79 +892,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤一、初始化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤一、初始化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cifar-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      CIFAR-10 数据集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cifar-10_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入 CIFAR-10 数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      图像分类器的两个步骤
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#l1" class="md-nav__link">
-    <span class="md-ellipsis">
-      L1距离（曼哈顿距离）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="L1距离（曼哈顿距离）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      模型训练——距离矩阵
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nn" class="md-nav__link">
-    <span class="md-ellipsis">
-      最近邻居算法(NN)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#l2" class="md-nav__link">
-    <span class="md-ellipsis">
-      L2距离（欧氏距离）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kknn" class="md-nav__link">
-    <span class="md-ellipsis">
-      前K最近邻居算法（KNN）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="前K最近邻居算法（KNN）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hyperparameter" class="md-nav__link">
-    <span class="md-ellipsis">
-      选取最佳超参数（Hyperparameter）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      交叉验证训练
+      查看读入的图片
     </span>
   </a>
   
@@ -960,27 +937,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../A1L1/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Assignment1 - K nearest Neighbour
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1104,79 +1060,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤一、初始化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤一、初始化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cifar-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      CIFAR-10 数据集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cifar-10_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入 CIFAR-10 数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      图像分类器的两个步骤
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#l1" class="md-nav__link">
-    <span class="md-ellipsis">
-      L1距离（曼哈顿距离）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="L1距离（曼哈顿距离）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      模型训练——距离矩阵
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nn" class="md-nav__link">
-    <span class="md-ellipsis">
-      最近邻居算法(NN)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#l2" class="md-nav__link">
-    <span class="md-ellipsis">
-      L2距离（欧氏距离）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kknn" class="md-nav__link">
-    <span class="md-ellipsis">
-      前K最近邻居算法（KNN）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="前K最近邻居算法（KNN）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hyperparameter" class="md-nav__link">
-    <span class="md-ellipsis">
-      选取最佳超参数（Hyperparameter）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      交叉验证训练
+      查看读入的图片
     </span>
   </a>
   
@@ -1205,179 +1119,159 @@
   
 
 
-<h1 id="_1">第二讲 —— 图像分类器</h1>
-<h2 id="_2">图像分类器的两个步骤</h2>
-<p><br></p>
-<ol>
-<li>
-<p><strong>训练模型</strong><br>
-&emsp;&emsp;图像的识别不是凭空进行的，就像计算机的算法流程一样，图像作为算法的输入，类别作为算法的输出，整个算法本身这个黑箱就是我们需要训练的东西，我们需要找到一个模型，让它的输入输出映射关系和图像识别过程相吻合。</p>
-</li>
-<li>
-<p><strong>预测图像</strong><br>
-&emsp;&emsp;执行预测图像的过程，就是使用我们找到的模型，进行输入、处理和输出的过程。就像哈希算法把原数据处理成哈希值一样，通过模型，原图像的像素阵列经过计算变成一些分数值，然后我们通过比较每个类型的得分来评价这个图像应该属于哪个类别。</p>
-</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">一点联想</p>
-<p><div style = "margin-left:5%;margin-right:5%;">
-&emsp;&emsp;这其实很有意思，就像学校给我们分发测试试卷、改卷打分来给我们评价学习水平一样，我们综合机器每一块像素，给它们来打分，最后得出它应该属于哪一个类别。就像你政治考了90分，而物理只有60分，你会下意识判断你适合学文科而不适合学理科。<br>
-&emsp;&emsp;但是，我们都知道这只是一个概率判断。影响考试分数的因素太多了，我们不会通过仅仅一次考试来决定一个人是否适合学习文科或者学习理科。对图像也一样，当图像对于“猫”得分最高的时候，它大概率是猫，但是这必然是不能百分百地确定的。<br>
-&emsp;&emsp;尽管如此，但就像物理模型中使用了非常多的一阶近似也能准确预测自然界的变化，对于机器，也可以有这样的误差和近似。我们可以通过开发训练吻合率更高的模型，这样让错误降到可以容许的范围，让它做出高概率的预测，这样这个模型就比较可信了。说不定有一天，机器可以做到比人眼识别更精准。
-</div></p>
-</div>
-<h2 id="l1">L1距离（曼哈顿距离）</h2>
-<p>&emsp;&emsp;我们刚刚讲到，对图像进行分类，最重要的是对图像确定一个“打分标准”，得到这个图像在每一个分类的分数，方便后续的选择。L1距离就是一个经典的打分标准。</p>
-<p><strong>L1距离公式：</strong>
-$$
-    L_1 = \sum_{p_{ij} \in img}{|p_{ij}-q_{ij}|},q_{ij} = \text{constant}
-$$</p>
-<p>&emsp;&emsp;在上面的公式中，<span class="arithmatex">\(q\)</span>是我们预先设置好的常数，也就是一个已知的图像，我们知道这个图像对应着什么，而L1距离就是把现在测试的图像和已知图像的像素值一一对应相减，然后进行求和，就像下面这个图显示的一样。</p>
-<p><img alt="Alt text" src="../asset/L2-img1.png" /></p>
-<p>&emsp;&emsp;我们把这个计算出来的东西叫做“距离”，是因为它从某种角度上确实反映了测试图像和已知图像的差异，从抽象的角度来看就是一种距离，而且它符合差异越大，距离越远的直观。</p>
-<h3 id="_3">模型训练——距离矩阵</h3>
-<p>&emsp;&emsp;因此，可以设想，如果我们手头有<span class="arithmatex">\(N\)</span>个已知的对象，同时有<span class="arithmatex">\(M\)</span>个需要验证的图像，我们一一计算它们之间距离，于是我们就可以得到一个 <span class="arithmatex">\(M\)</span>行<span class="arithmatex">\(N\)</span>列的矩阵，我们将它称作距离矩阵（distance matrix），通过比较每一行的距离，就可以得出每一个验证图像的预测类型。</p>
-<h3 id="nn">最近邻居算法(NN)</h3>
-<p>&emsp;&emsp;根据直观感受，我们不妨做出这样的结论，我们认为如果两个图像的L1距离越小，那么这两个图像就越相似。对于测试图像，我们计算它对于每一个已知图像的已有距离，看看它和谁走得更近，就跟谁归为同一类——这就是最近邻居（Nearest Neighbour）算法。</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">NN.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">class</span> <span class="nc">NearestNeighbour</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">pass</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; 注意，我们为了存储的方便，把图像的每一行拼接起来，这样就把二维的图像数据转化成了一维来存储。 &quot;&quot;&quot;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="c1"># X是一个M行N列的二维数组，M代表已知图的个数，N代表每个图的大小 </span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="c1"># y是一个大小为M的一维数组，存储的是每一个图像所对应的类别</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">Xtr</span> <span class="o">=</span> <span class="n">X</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ytr</span> <span class="o">=</span> <span class="n">y</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">):</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="c1"># 此处X是一个K行N列的二维数组，K代表需要测试图像的个数，N代表每个图的大小，这个N必须和Xtr中的N匹配</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="n">num_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">Ypred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_test</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ytr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># 初始化类型</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">num_test</span><span class="p">):</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="c1"># 计算 L1距离矩阵</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>            <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Xtr</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,:]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>            <span class="c1"># 寻找距离最小对应图像的下标</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>            <span class="n">min_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>            <span class="c1"># 下标映射找到对应分类</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="n">Ypred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ytr</span><span class="p">[</span><span class="n">min_index</span><span class="p">]</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="k">return</span> <span class="n">Yred</span>
-</code></pre></div></td></tr></table></div>
-<details class="question">
-<summary>一些关于代码的问题和解答</summary>
-<p><div style = "margin-left:5%;margin-right:5%;">
-<div style = "font-size:16px">
-<strong>一. 第16行的</strong> <code>X.shape[0]</code> <strong>是什么意思？</strong><br>
-</div>
-&emsp;&emsp;<code>X.shape</code>是一个numpy的函数，其中<code>X.shape[N]</code>代表的是读取变量X第N-1个维度的大小，这里的<code>X.shape[0]</code>就是读取行数，如果是<code>X.shape[1]</code>读取的就是列数。<br>
-&emsp;&emsp;更进一步地，如果拓展到更高维度的情况（我们很多时候都会使用多维数组），.shape[]函数就会非常方便。比如对于一个numpy的array变量，如果它是一个类似<code>X[A][B][C][D]</code>四维数组，由于python对规定变量的模糊化，我们不知道ABCD的具体值，我们就可以遍历<code>X.shape[0] ~ X.shape[3]</code> 来得到 A ~ D。特殊地，就像-1在数组中的使用一样，如果我们使用<code>X.shape[-1]</code>，它会返回最后一个维度的大小，也就是<code>X.shape[3]</code>。<br><br>
-<div style = "font-size:16px">
-<strong>二、第17行的</strong><code>np.zeros()</code><strong>用来做什么？</strong><br>
-</div>
-&emsp;&emsp;就像我们在C语言中需要定义变量并且赋初值一样，在python中我们同时需要这样做，但是python会通过你赋的值来自动为变量判断类型，所以简化了变量的定义步骤。array是numpy库中的一个非常灵活的变量格式，通过array以及它附带的一些函数，可以判断整个数组的维度、大小，甚至可以做局部求和、转置、矩阵乘法等等，而对array赋初值就可以使用<code>np.zeros(tuple,type)</code>得到一个确定大小的、整体的赋零数组。tuple代表的是整个array的形状，比如<code>(5,2,3)</code>得出来的就是数组<code>a[5][2][3]</code>，type就是数组的数据类型。<br><br>
-<div style = "font-size:16px">
-<strong>三、第21行的<code>X[i, :]</code>是什么意思？</strong><br>
-</div>
-&emsp;&emsp;这是python中的一种省略形式，首先，对于符号<code>:</code>本身，它本身代表范围的选取，比如<code>[2:5]</code>选取的就是 <code>[2]</code>、<code>[3]</code>和<code>[4]</code>，即<span class="arithmatex">\([2,5)\)</span>区间的所有整数号。而如果把前面的2省去，则默认从下标0开始，如果后面的5被省去，则默认在最后一个元素结束。因此，当第二维度仅有<code>:</code>时，前后数字都被省去，因此这个选取是从0到最后一个元素，因此是选中了一整行。<br><br>
-<div style = "font-size:16px">
-<strong>三、第21行的<code>axis = 1</code>是什么意思？</strong><br>
-</div> 
-&emsp;&emsp; <code>axis</code>是<code>np.sum()</code>中的一个参数，而函数<code>np.sum()</code>是把数组的某几个维度的数字全部加起来，像是做一些投影操作，把整个数组降了若干个维度。这个axis就是对应的维度。比如有三维数组，我们想要把它的最后一个个维度全部加起来，就可以设置参数<code>axis = -1</code>。在这个例程中，把axis设置为1，这意味着求和将在序号1的维度进行，也就是这个二维数组的每一行进行求和。
-</div></p>
-</details>
-<h2 id="l2">L2距离（欧氏距离）</h2>
-<p>&emsp;&emsp;直接地把各个像素的差距相加似乎违背我们对距离的认识，就像我向东走了100米，向北走了100米，这并不意味着我们走到了距离原点200米的地方。因此，L2距离运用了欧氏空间的刻画，将每一个像素看作一个维度，然后计算多维空间中的距离。</p>
-<p><strong>L2距离公式：</strong></p>
-<div class="arithmatex">\[
-    L_2 = \sqrt{\sum_{p_{ij} \in img}(p_{ij} - q_{ij})^2}, q_{ij} = \text{constant}
-\]</div>
-<div class="admonition info">
-<p class="admonition-title">L2距离和运行优化</p>
-<p><div style = "margin-left:5%;margin-right:5%;margin-top:3%;margin-bottom:3%">
-因为L2距离的公式特性，在实际应用中通过一定的拆分，可以大大优化程序的运行速度。<a href="#nn">查看具体优化</a>
-</div></p>
-</div>
-<h2 id="kknn">前K最近邻居算法（KNN）</h2>
-<p>&emsp;&emsp;在先前的<strong><a href="#nn">最近邻居算法</a></strong>中，我们直接采用最近的邻居作为我们图像的分类依据。这很方便，但是它对于一些边界情况的判断是非常糟糕的。比如，如果我们用二维平面的格点来表示已知的点，并用颜色来表示它们的类型，而让点与点间的距离来表示图像间的距离（这样的表示并不完全合适，但是至少可以说明问题），我们会得到如下的图：</p>
-<p><center>
-<img alt="Alt text" src="../asset/L2-img2.png" />
-</center></p>
-<p>&emsp;&emsp;我们可以看到，类与类之间的间距是十分粗糙的，存在非常多的锯齿，锯齿意味着一点微小的差异就会让预测结果天差地别，这是我们不想看到的，另外可以观察到的是在绿色类中间有一块“飞地”，但是我们的直觉会告诉我们这是一种极其特殊的情况，一般根据规律性来看，中间应该仍然是绿色类。<br>
-&emsp;&emsp;因此，为了抹平边界让其变得更加光滑符合直觉，提高整个模型的准确性并且增加对极端情况的耐受度，进一步地提出了前K最近邻居算法（K-Nearest-Neighbour）。<br>
-&emsp;&emsp;顾名思义，前K最近邻居算法没有把数据参考设置在一个点上，而是先选取最近的K个点，然后根据这K个点综合进行判断。比如，<span class="arithmatex">\(K=5\)</span>，取五个点，四个点是绿色，一个点是黄色，那么因为绿色点最多，输出结果就是绿色。 <br><br>
-&emsp;&emsp;<a href="">KNN算法代码</a>  <br><br>
-&emsp;&emsp;执行这种算法过后，我们可以重新观察边界中的情况，我们看到出现了一些“白色”区域，这些是因为在这片区域前K个最近邻居中存在多个最多类型，无法进行判断。但是，同时可以发现，边界的锯齿情况得到了极大的改善，而绿色块中间的“飞地”也消失了。</p>
-<p><center>
-<img alt="Alt text" src="../asset/L2-img3.png" />
-</center></p>
-<h3 id="hyperparameter">选取最佳超参数（Hyperparameter）</h3>
-<p>&emsp;&emsp;超参数是不由外界输入，而由程序内部需要手动设置的参数，它会影响整个程序的进程。在KNN算法中，这个超参数就是K。而我们知道，我们不能用同一个K去训练不同的模型，<del>这样可能会犯下教条主义错误</del>。所以针对一组数据集，我们需要通过一些手段，量身订造地判断最合适的K。<br>
-&emsp;&emsp;目前，我们能想到的最暴力的方式就是尝试着代入一些K来验证哪个K能达到最好的预测效果。</p>
-<div class="admonition example">
-<p class="admonition-title">选取超参数的一些方式</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">所有的数据作为训练数据</label><label for="__tabbed_1_2">分割数据集为训练集和测试集</label><label for="__tabbed_1_3">分割数据集为训练集、验证集和测试集</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><div style = "margin-left:5%;margin-right:5%;margin-top:3%;margin-bottom:3%">
-&emsp;&emsp;我们如果选择All in，把手上所有的数据全部当作训练数据，虽然这会一定程度上（虽然程度很小）增加模型的可靠性，但是我们没有办法在测试的时候去验证。选取K的时候，<span class="arithmatex">\(K=1\)</span>的成功预测率一定是<span class="arithmatex">\(100\%\)</span>，因为我们用任意手头的数据去验证，总有一个已知点和这个数据的距离为<span class="arithmatex">\(0\)</span>（因为它已经被包含在模型当中了）。所以，这样选取K的方式是不能够选出最优的K的。
-<center>
-<img alt="Alt text" src="../asset/L2-img4.png" />
-</center>
-</div></p>
-</div>
-<div class="tabbed-block">
-<p><div style = "margin-left:5%;margin-right:5%;margin-top:3%;margin-bottom:3%">
-&emsp;&emsp;这种方式相比于上一个全部投入的方法，起码给我们提供了一个可以验证原有数据集是否可行的方式，让我们走出了完全黑箱开盲盒的困扰。但是，这种方式就好比考试结束的自我估分。经过验算，我们都觉得自己能考一个非常不错的分数，但是考试后我们往往会发现实际成绩要比我们的预测成绩要低。用这种方式测试模型也是一样，我们只是验证了K在这种特定验证集下是准确的，但我们无法确定当它被真正地拿到应用场景时会变成什么样子。
-<center>
-<img alt="Alt text" src="../asset/L2-img5.png" />
-</center>
-</div></p>
-</div>
-<div class="tabbed-block">
-<p><div style = "margin-left:5%;margin-right:5%;margin-top:3%;margin-bottom:3%">
-&emsp;&emsp;这种方式又增加了一个验证集。验证集好比拉了一个同学来讨论题目，通过他的方法来验算自己的方法。这种方式无疑会显著地提高答案的可靠性。总之，这种方式需要保证测试集是完全随机的，用来模拟真实的应用情况，先用验证集验证得到K，完成模型，然后再把这个模型用来验证测试集，进一步验证它的正确性。
-<center>
-<img alt="Alt text" src="../asset/L2-img6.png" />
-</center>
-</div></p>
-</div>
-</div>
-</div>
-</div>
-<h3 id="_4">交叉验证训练</h3>
-<p>&emsp;&emsp;通过刚才的讨论，我们知道我们可以通过分割数据集来比较精确地验证模型的正确性。我们当然希望模型能通过验证得到一个很好的结果，但是<del>理想是丰满的，道路是曲折的</del>我们总会遇见模型精确度不高的问题。这个时候我们因为使用了所有的数据，只能够推倒重来，使用新的数据集。<br>
-&emsp;&emsp;交叉验证训练可以较大程度地缓解这个问题。在交叉训练中，我们首先挑选出测试集，保证它的随机性，然后把剩下的数据分成若干个数据块，我们选取其中的一个数据块作为验证集，而剩下的作为训练集。所以，如果我们有五块这样的数据块，我们就可以有五个不同的训练集，选择更多，选到高准确度模型的可能就越大。</p>
-<p><img alt="Alt text" src="../asset/L2-img7.png" /></p>
+<h1 id="k">实验一 —— 实现前K最近邻居算法</h1>
+<p>&emsp;&emsp;在<strong><a href="../L2/">图像分类器</a></strong>的教学中，我们学习到了要实现KNN算法需要了解的一些知识，接下来将通过实验来进一步地阐释整个算法的实现过程。</p>
+<h2 id="_1">步骤一、初始化</h2>
+<div class="highlight"><span class="filename">knn.ipynb</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># ipython notebook的一些初始化操作</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 导入一些前置库，包括numpy, random(抽取数据用)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">random</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span> <span class="nn">cs231n.data_utils</span> <span class="kn">import</span> <span class="n">load_CIFAR10</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># matplot的初始化：内嵌画图、窗口设置、插值类型、图线颜色</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)</span> 
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;image.interpolation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;nearest&#39;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;image.cmap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Ipython中，对调用的模块进行实时的更新，无需手动重载。</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># http://stackoverflow.com/questions/1907993/autoreload-of-modules-in-ipython</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+</code></pre></div>
+<p>&emsp;&emsp;在这段代码中，除了经典的numpy和需要的random模块外我们还可以看到整个程序调用了matplotlib的pyplot模块，这是用于产生数据图的一个模块，具体如何使用可以看<a href="">后续代码</a>，这里进行了初始化设置，先把图像内嵌从而不弹出新的窗口，然后设置窗口大小、插值类型以及图线的颜色。<br>
+&emsp;&emsp;此外我们还可以看到程序调用了一个<code>load_CIFAR10</code>的函数。下面我们来解释它的作用。</p>
+<h3 id="cifar-10">CIFAR-10 数据集</h3>
+<p>&emsp;&emsp;CIFAR-10数据集是非常经典，也是非常基础的一套训练集，它由五万个32px * 32px大小的图像组成，每个像素包含RGB三个颜色通道，因为像素少，所以整体的训练集大小不是很大，适合轻量级的模型训练。它的文件结构如下：</p>
+<p><img src = "../A1L1-img1.png" width = "200" height = "200" style = "margin-left:3%"></p>
+<p>&emsp;&emsp;观察目录结构，可以发现它由五个训练集构成，需要注意的是它并不是以图像的形式存储，而是直接以二进制格式存储。如果使用二进制文本查看器来分析，可以大致看出整体的数据集的文件结构，首先是整个文件的文件头，然后存储了图像的类型（<span class="arithmatex">\(1 \text{ Byte}\)</span>数字表示，<code>\04B</code>隔开），接下来是图像头，最终是图像的内容，大致了解了它的结构，我们可以更好理解下面程序是如何导入数据的。</p>
+<h3 id="cifar-10_1">导入 CIFAR-10 数据</h3>
+<p>&emsp;&emsp;接下来，我们来看看函数<code>load_CIFAR10</code>是如何运作的。</p>
+<p><div class="highlight"><span class="filename">data_utils.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">range</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cPickle</span> <span class="k">as</span> <span class="n">pickle</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># 读取文件信息</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">def</span> <span class="nf">load_pickle</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">version</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">python_version_tuple</span><span class="p">()</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">if</span> <span class="n">version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">elif</span> <span class="n">version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin1&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="c1"># CIFAR对于python有标准的返回格式。</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="c1"># 返回一个字典，每个字典中是设置好的名字和相关数据</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid python version: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># 读取一个数据块</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="k">def</span> <span class="nf">load_CIFAR_batch</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="n">datadict</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>        <span class="c1"># 读取图像信息和标签信息</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>        <span class="n">X</span> <span class="o">=</span> <span class="n">datadict</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        <span class="n">Y</span> <span class="o">=</span> <span class="n">datadict</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>        <span class="c1"># X的RGB原来在1号维，现在把XY位置维度前移，方便之后的计算。</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>        <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        <span class="c1"># Y的类型从List转成array，方便后续计算</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c1"># 读取所有数据</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="k">def</span> <span class="nf">load_CIFAR10</span><span class="p">(</span><span class="n">ROOT</span><span class="p">):</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="n">ys</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="c1"># 从1到5进行遍历，对应data_batch_i(i = 1,2,3,4,5)</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s2">&quot;data_batch_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">b</span><span class="p">,))</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>        <span class="c1"># 读取一个数据块的图像</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">load_CIFAR_batch</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>        <span class="c1"># 把图像放到列表中</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>        <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>        <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    <span class="c1"># 整合数据块</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="n">Xtr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>    <span class="n">Ytr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>    <span class="c1"># 释放空间</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>    <span class="k">del</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>    <span class="n">Xte</span><span class="p">,</span> <span class="n">Yte</span> <span class="o">=</span> <span class="n">load_CIFAR_batch</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s2">&quot;test_batch&quot;</span><span class="p">))</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>    <span class="k">return</span> <span class="n">Xtr</span><span class="p">,</span> <span class="n">Ytr</span><span class="p">,</span> <span class="n">Xte</span><span class="p">,</span> <span class="n">Yte</span>
+</code></pre></div>
+&emsp;&emsp;至于pickle如何运作就不再细究了。总之，CIFAR10为python打包了一个数据库，可以直接用pickle读出所有的数据，并且以字典的形式返回，下面的表显示了pickle包中的一些数据类型和它们的一些样例。</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">键（Key）</th>
+<th style="text-align: center;">描述</th>
+<th style="text-align: center;">样例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">batch_label</td>
+<td style="text-align: center;">这批数据的标签 <br> 一个字符串表示</td>
+<td style="text-align: center;">'training batch 3 of 5', <br> 'testing batch 1 of 1'...</td>
+</tr>
+<tr>
+<td style="text-align: center;">labels</td>
+<td style="text-align: center;">各个图像属于的类型 <br> 一个List表示，每批10000个</td>
+<td style="text-align: center;">[0，1，2，3，4，5，6，7，8，9，0，1，..]</td>
+</tr>
+<tr>
+<td style="text-align: center;">data</td>
+<td style="text-align: center;">各个图像的具体内容 <br> 一个numpy.darray表示10000张<br>三个通道<span class="arithmatex">\(32\times32\)</span>像素的图片 <br> 组织方式：二维数组；<br> 图片下标，(通道下标，行，列)</td>
+<td style="text-align: center;">略</td>
+</tr>
+<tr>
+<td style="text-align: center;">filenames</td>
+<td style="text-align: center;">图片名 <br> 一个字符串List表示，每批10000个</td>
+<td style="text-align: center;">['auto_s_000241.png', <br> &ensp; 'bufo_viridis_s_001109.png', <br> &ensp; 'rana_catesbeiana_s_000111.png', .. ]</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>&emsp;&emsp;我们只关心labels 和 data中的数据，所以提取出数据后，我们做了一步对X维度的重新设计——首先把二维拓展成四维（图像下标、通道下标、行、列），然后将图像进行了维度的转置，把通道下标放到最后一个维度，方便我们进行对单个像素的修改。最后把类型转换为<code>float</code>。
+&emsp;&emsp;最终我们调用<code>load_CIFAR10</code>函数，得到了原始的数据集，其中有训练集和测试集，数据包含类型为<code>numpy.darray</code>的内容四维数组和类型为<code>numpy.darray</code>的一维下标数组。</p>
+<div class="highlight"><span class="filename">knn.ipynb</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">cifar10_dir</span> <span class="o">=</span> <span class="s1">&#39;cs231n/datasets/cifar-10-batches-py&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># 如果已经有存在的变量，进行释放避免出现内存冲突</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>   <span class="k">del</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>   <span class="k">del</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Clear previously loaded data.&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>   <span class="k">pass</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># 读入数据</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">load_CIFAR10</span><span class="p">(</span><span class="n">cifar10_dir</span><span class="p">)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># 观察数组的构成，来检测我们是否得到了正确的数据。这是一个经典简单且有效的检查方式。</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training data shape: &#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training labels shape: &#39;</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test data shape: &#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test labels shape: &#39;</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div>
+<p>&emsp;&emsp;我们观察上面的四个print，它们是从观察整个数组构成来看图像读入是否正确，我们同样可以用更直观的方式来判断读入是否正确。</p>
+<h3 id="_2">查看读入的图片</h3>
+<div class="highlight"><span class="filename">knn.ipynb</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Visualize some examples from the dataset.</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># We show a few examples of training images from each class.</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;plane&#39;</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;deer&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;frog&#39;</span><span class="p">,</span> <span class="s1">&#39;horse&#39;</span><span class="p">,</span> <span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="s1">&#39;truck&#39;</span><span class="p">]</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">samples_per_class</span> <span class="o">=</span> <span class="mi">7</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">idxs</span><span class="p">,</span> <span class="n">samples_per_class</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">idxs</span><span class="p">):</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="n">plt_idx</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">num_classes</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">samples_per_class</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="n">plt_idx</span><span class="p">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">))</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 
 
 
