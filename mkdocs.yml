@@ -92,5 +92,7 @@ nav:
       - CS231N:
         - Lecture2 - Image Classifier: ScientificResearch\CS231N\L2.md
         - Assignment1 - K nearest Neighbour: ScientificResearch\CS231N\A1L1.md
+      - Games001:
+        - ScientificResearch\Games001\index.md
   - 读书心得:
     - x

@@ -17,3 +17,7 @@ Update 1:
 
 **1.22**
 + K-Nearest-Neighbour lab report
+
+**3.3**
++ Discrete Maths notes
++ Database System notes 
