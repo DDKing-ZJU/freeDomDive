@@ -86,6 +86,7 @@ nav:
       - 命题的应用 - 数独游戏: Classnote\Discrete-Mathematics\Sudoku.md
     - 数据库系统:
       - Classnote\Database-System\index.md
+      - 数据库系统导学: Classnote\Database-System\termsintro.md
   - 科研学习: 
     - ScientificResearch\index.md
     - 基础课程: 

@@ -29,13 +29,21 @@ $$
     \forall x(P(x) \rightarrow Q) \equiv \exists xP(x) \rightarrow Q \\
     \exists x(P(x) \rightarrow Q) \equiv \forall xP(x) \rightarrow Q \\
 $$
+> 记忆方法：直接拆括号，对于最后两个式子，因为$P(x)$在前，把推导符号转换成析取的时候要取反，取反前置会导致谓词改变。
 
 * 必要条件和推出符号的关系
 &emsp;&emsp;一些翻译题中会出现"necessary condition","only if"字样，需要翻译成"implies"符号，它们的关系是：
 
 > The necessary condition of $A$ is $B$ —— $A \rightarrow B$
+
 > $A$ holds only if $B$ holds &emsp;&emsp;&emsp;&emsp;&emsp;—— $A \rightarrow B$
 
 * 逻辑符号的优先级
 
 &emsp;&emsp;需要注意的是，推出符号$\rightarrow \leftarrow \leftrightarrow$的优先级要大于合取析取$\wedge \vee$，所以在表示隐含关系时，尽量能写括号就写括号。比如$(p \vee q) \rightarrow r$
+
+* 前束范式转换步骤（prenex normal form）
+1. 如果发现无关的部分有变量名复用（如$\exist xP(x) \rightarrow \forall xP(x)$）则需要改变变量名，避免变量名重复。
+2. 通过上述的谓词公式，把$\forall$和$\exists$提到最前面。注意谓词的前后顺序，实际上带谓词的变量本身就省略了一层括号。例如$\exist xP(x) \rightarrow \forall yP(y) \equiv \forall y\exist x(P(x) \rightarrow P(y))$
+
+* 证伪可以用反例，不一定硬上公式转化。
