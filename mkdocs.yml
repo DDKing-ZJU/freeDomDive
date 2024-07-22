@@ -1,15 +1,15 @@
 site_name: freeDomD↓ve
 site_author: DDKing
-site_url: 'https://ddking-zju.github.io/freeDomDive/'
+site_url: "https://ddking-zju.github.io/freeDomDive/"
 
-repo_name: 'DDKing/freeDomD↓ve'
-repo_url: 'https://github.com/DDKing-ZJU/freeDomDive/'
+repo_name: "DDKing/freeDomD↓ve"
+repo_url: "https://github.com/DDKing-ZJU/freeDomDive/"
 
 theme:
   name: material
   custom_dir: overrides
   icon:
-    repo: fontawesome/brands/github-alt 
+    repo: fontawesome/brands/github-alt
   font:
     code: Play
   features:
@@ -43,8 +43,8 @@ extra:
       link: https://github.com/DDKing-ZJU
 
 extra_javascript:
-  - javascripts/katex.js 
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - javascripts/katex.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
 
 extra_css:
@@ -66,34 +66,33 @@ markdown_extensions:
   - pymdownx.mark
   - attr_list
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-copyright:
-  Copyright &copy; 2024 <a href = "https://github.com/DDKing-ZJU" target="_blank" rel="noopener">DDKing</a>
+copyright: Copyright &copy; 2024 <a href = "https://github.com/DDKing-ZJU" target="_blank" rel="noopener">DDKing</a>
 
 nav:
   - Home:
-    - index.md
-    - Discussion: discussions.md
-  - 课程笔记: 
-    - Classnote\index.md
-    - 离散数学及其应用: 
-      - Classnote\Discrete-Mathematics\index.md
-      - 琐记: Classnote\Discrete-Mathematics\Casual.md
-      - 命题的应用 - 数独游戏: Classnote\Discrete-Mathematics\Sudoku.md
-    - 数据库系统:
-      - Classnote\Database-System\index.md
-      - 数据库系统导学: Classnote\Database-System\termsintro.md
-  - 科研学习: 
-    - ScientificResearch\index.md
-    - 基础课程: 
-      - CS231N:
-        - Lecture2 - Image Classifier: ScientificResearch\CS231N\L2.md
-        - Assignment1 - K nearest Neighbour: ScientificResearch\CS231N\A1L1.md
-      - Games001:
-        - ScientificResearch\Games001\index.md
+      - index.md
+      - Discussion: discussions.md
+  - 课程笔记:
+      - Classnote\index.md
+      #  - 离散数学及其应用:
+      #    - Classnote\Discrete-Mathematics\index.md
+      #    - 琐记: Classnote\Discrete-Mathematics\Casual.md
+      #     - 命题的应用 - 数独游戏: Classnote\Discrete-Mathematics\Sudoku.md
+      - 数据库系统:
+          - Classnote\Database-System\index.md
+          - 数据库系统导学: Classnote\Database-System\termsintro.md
+  - 科研学习:
+      - ScientificResearch\index.md
+      - 基础课程:
+          - CS231N:
+              - Lecture2 - Image Classifier: ScientificResearch\CS231N\L2.md
+              - Assignment1 - K nearest Neighbour: ScientificResearch\CS231N\A1L1.md
+          - Games001:
+              - ScientificResearch\Games001\index.md
   - 读书心得:
-    - x
+      - x
