@@ -31,9 +31,11 @@ A website recording study and life.
     <div style = "font-size:18px;margin-left:5%;margin-right:5%;margin-top:3%;margin:bottom:3%">
     
     + Jan. 21st &emsp; [CS231N - Image Classifier](ScientificResearch/CS231N/L2.md)
-    + Mar. 3rd &emsp; [离散数学及其应用 - 命题的应用 - 数独游戏](.\Classnote\Discrete-Mathematics\Sudoku.md)
-    + Mar. 11th &emsp; [数据库系统 - 数据库系统导学](.\Classnote\Database-System\termsintro.md)
     
+    <!--    + Mar. 3rd &emsp; [离散数学及其应用 - 命题的应用 - 数独游戏](.\Classnote\Discrete-Mathematics\Sudoku.md) -->
+
+    + Mar. 11th &emsp; [数据库系统 - 数据库系统导学](.\Classnote\Database-System\termsintro.md)
+
     </div>
 <br>
 

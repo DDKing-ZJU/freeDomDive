@@ -5,5 +5,5 @@
 
 ## 最近更新
 
-[离散数学及其应用 - 命题的应用 - 数独游戏](.\Discrete-Mathematics\Sudoku.md) </br>
+<!-- [离散数学及其应用 - 命题的应用 - 数独游戏](.\Discrete-Mathematics\Sudoku.md) </br> -->
 [数据库系统 - 数据库系统导学](.\Database-System\termsintro.md)
